@@ -1,0 +1,734 @@
+clear
+prev=0
+ich=1
+
+while [ $ich -eq 1 ]
+do
+
+echo --------------------------------------------------------------------------------------------------------
+echo "**************************************** MAIN MENU *************************************************"
+echo --------------------------------------------------------------------------------------------------------
+echo enter your choice operation
+echo enter  1. for addition
+echo enter  2. for substraction
+echo enter  3. for multiplication
+echo enter  4. for division
+echo enter  5. for modulo
+echo enter  6. for pi value
+echo enter  7. for e value
+echo enter  8. for lcm
+echo enter  9. for prime
+echo enter 10. for factorial
+echo enter 11. for nCr
+echo enter 12. for nPr
+echo enter 13. for a ^ b
+echo enter 14. for squre root
+echo enter 15. for multiplication table
+echo enter 16. for sum of digits
+echo enter 17. for conversion of binary to decimal
+echo enter 18. for conversion of decimal to binary
+echo enter 19. for conversion of octal to decimal
+echo enter 20. for conversion of decimal to octal
+echo enter 21. "for exponential value (e^x)"
+echo enter 22. for absolute value
+echo enter "23. sin(radian)"
+echo enter "24. cos(radian)"
+echo enter "25. tan(radian)"
+echo enter "26. log(x) base 10"
+
+echo --------------------------------------------------------------------------------------------------
+echo ---------------------------------------------------------------------------------------------------
+
+echo enter your choice 
+read ch
+
+
+if [ $ch -eq 1 ]
+then
+
+if [ $prev -eq 1 ]
+then
+	a=$c
+else
+	echo enter the first value
+	read a
+fi
+
+echo enter the second number
+read b
+c=`echo - | awk '{print '$a'+'$b'}'`
+
+
+echo -------------------------------------------------------------------------------------------------
+echo -------------------------------------------------------------------------------------------------
+ 
+
+
+
+elif [ $ch -eq 2 ]
+then
+
+if [ $prev -eq 1 ]
+then
+	a=$c
+else
+	echo enter the first value
+	read a
+fi
+
+echo enter the second number
+read b
+c=`echo - | awk '{print '$a'-'$b'}'`
+
+
+echo -------------------------------------------------------------------------------------------------
+echo -------------------------------------------------------------------------------------------------
+ 
+
+
+elif [ $ch -eq 3 ]
+
+then
+if [ $prev -eq 1 ]
+then
+	a=$c
+else
+	echo enter the first value
+	read a
+fi
+
+echo enter the second number
+read b
+c=`echo - | awk '{print '$a'*'$b'}'`
+
+
+echo -------------------------------------------------------------------------------------------------
+echo -------------------------------------------------------------------------------------------------
+ 
+
+
+elif [ $ch -eq 4 ]
+then
+
+if [ $prev -eq 1 ]
+then
+	a=$c
+else
+	echo enter the first value
+	read a
+fi
+
+echo enter the second number
+read b
+c=`echo - | awk '{print '$a'/'$b'}'`
+
+
+echo -------------------------------------------------------------------------------------------------
+echo -------------------------------------------------------------------------------------------------
+ 
+
+elif [ $ch -eq 5 ]
+then
+
+if [ $prev -eq 1 ]
+then
+	a=$c
+else
+	echo enter the first value
+	read a
+fi
+
+echo enter the second number
+read b
+c=`echo - | awk '{print '$a'%'$b'}'`
+
+
+echo -------------------------------------------------------------------------------------------------
+echo -------------------------------------------------------------------------------------------------
+ 
+
+
+
+elif [ $ch -eq 6 ]
+then
+	c=3.14
+	echo $c
+
+
+echo -------------------------------------------------------------------------------------------------
+echo -------------------------------------------------------------------------------------------------
+ 
+
+
+
+elif [ $ch -eq 7 ]
+then
+	c=2.718
+	echo $c
+
+
+echo -------------------------------------------------------------------------------------------------
+echo -------------------------------------------------------------------------------------------------
+
+
+elif [ $ch -eq 8 ]
+then
+	echo enter the larger no. one
+	read a
+	echo enter number two
+	read b
+	p=`expr $a \* $b`
+	while [ $b -ne 0 ]
+	do
+		r=`expr $a % $b` 
+	a=$b
+	b=$r
+	done
+	LCM=`expr $p / $a`
+	echo LCM is $LCM
+
+
+echo -------------------------------------------------------------------------------------------------
+echo -------------------------------------------------------------------------------------------------
+
+
+
+
+elif [ $ch -eq 9 ]
+then 
+
+if [ $prev -eq 1 ]
+then
+	a=$c
+else
+	echo enter the first value
+	read a
+fi
+
+t=0
+ 
+for((i=2;i<n;i++))
+do
+k=`expr $n % $i`
+if [ $k -eq 0 ]
+then
+	t=`expr $t + 1` 
+fi
+done 
+if [ $t -eq 0 ]
+then 
+echo "$n is a prime"
+else
+echo "$n is not a prime"
+fi
+
+echo -------------------------------------------------------------------------------------------------
+echo -------------------------------------------------------------------------------------------------
+
+
+
+
+elif [ $ch -eq 10 ]
+then
+
+if [ $prev -eq 1 ]
+then
+	a=$c
+else
+	echo enter a number
+	read a
+fi
+c=1
+while [ $a -ne 0 ]
+do
+c=`expr $c \* $a`
+a=`expr $a - 1`
+done
+echo $c
+
+
+echo -------------------------------------------------------------------------------------------------
+echo -------------------------------------------------------------------------------------------------
+
+
+
+
+
+elif [ $ch -eq 11 ]
+then
+echo enter the numbers to calculate nCr
+echo enter the first number
+read a
+echo enter the second numbr
+read b
+if [ $b -gt $a ]
+then 
+	c=$b
+	b=$a
+	a=$b
+fi
+d=$a
+e=$b
+f=`expr $a - $b`
+k1=1
+k2=1
+k3=1
+
+while [ $d -ne 0 ]
+do
+k1=`expr $k1 \* $d`
+d=`expr $d - 1`
+done
+
+while [ $e -ne 0 ]
+do
+k2=`expr $k2 \* $e`
+e=`expr $e - 1`
+done
+
+
+while [ $f -ne 0 ]
+do
+k3=`expr $k3 \* $f`
+f=`expr $f - 1`
+done
+
+
+final=`expr $k2 \* $k3`
+c=`expr $k1 / $final`
+echo $c
+
+echo -------------------------------------------------------------------------------------------------
+echo -------------------------------------------------------------------------------------------------
+
+
+
+
+elif [ $ch -eq 12 ]
+then
+echo enter the numbers to calculate nPr
+echo enter the n
+read a
+echo enter the r
+read b
+if [ $b -gt $a ]
+then 
+	c=$b
+	b=$a
+	a=$b
+fi
+
+
+d=$a
+e=$b
+f=`expr $a - $b`
+k1=1
+k3=1
+
+while [ $d -ne 0 ]
+do
+k1=`expr $k1 \* $d`
+d=`expr $d - 1`
+done
+
+
+while [ $f -ne 0 ]
+do
+k3=`expr $k3 \* $f`
+f=`expr $f - 1`
+done
+
+
+
+c=`expr $k1 / $k3`
+echo $c
+
+
+echo -------------------------------------------------------------------------------------------------
+echo -------------------------------------------------------------------------------------------------
+
+
+
+
+elif [ $ch -eq 13 ]
+then
+echo enter the BASE number
+read a
+echo enter the power number
+read b
+c=1
+for ((i=1;i<=b;i++))
+do
+	c=`expr $c \* $a`
+done
+echo $c
+
+echo -------------------------------------------------------------------------------------------------
+echo -------------------------------------------------------------------------------------------------
+
+
+
+elif [ $ch -eq 14 ]
+then
+
+if [ $prev -eq 1 ]
+then
+	a=$c
+else
+	echo enter the first value
+	read a
+fi
+c=`echo | awk '{print sqrt('$a')}'`
+echo $c
+
+echo -------------------------------------------------------------------------------------------------
+echo -------------------------------------------------------------------------------------------------
+
+
+elif [ $ch -eq 15 ]
+
+then
+if [ $prev -eq 1 ]
+then
+	a=$c
+else
+	echo enter the value
+	read a
+fi
+
+echo " Enter the number of factors : "
+read f
+for (( i=1 ; i<=f ; i++))
+do
+	c=`expr $a \* $i`
+	echo  $c
+done   
+
+echo -------------------------------------------------------------------------------------------------
+echo -------------------------------------------------------------------------------------------------
+
+
+
+
+elif [ $ch -eq 16 ]
+then
+
+if [ $prev -eq 1 ]
+then
+	a=$c
+else
+	echo enter the value
+	read a
+fi
+
+c=0
+while [ $a -gt 0 ]
+do
+	r=`expr $a % 10`
+	c=`expr $r + $c`
+	a=`expr $a / 10`
+
+done
+echo " Sum : " $c
+
+echo -------------------------------------------------------------------------------------------------
+echo -------------------------------------------------------------------------------------------------
+
+
+
+
+elif [ $ch -eq 17 ]
+
+then
+
+if [ $prev -eq 1 ]
+then
+	a=$c
+else
+	echo enter the value
+	read a
+fi
+
+len=${#a}
+i=1
+pow=$((len - 1 ))
+while [ $i -le $len ]
+do
+n=`echo $a | awk '{ printf substr( $0,'$i',1 )}' `
+j=1
+p=1
+while [ $j -le $pow ]
+do
+p=$(( p * 2 ))
+j=$(( j + 1 ))
+done
+dec=$(( n * p ))
+c=$(( c + dec ))
+pow=$((pow - 1 ))
+i=$(( i + 1 ))
+done
+echo "Equivalent Decimal no:"$c 
+echo -------------------------------------------------------------------------------------------------
+echo -------------------------------------------------------------------------------------------------
+
+
+
+elif [ $ch -eq 18 ]
+
+then
+if [ $prev -eq 1 ]
+then
+	a=$c
+else
+	echo enter the value
+	read a
+fi
+
+rem=1
+bno=" "
+while [ $a -gt 0 ]
+do
+rem=`expr $a % 2 `
+bno=$bno$rem
+a=`expr $a / 2 `
+done
+i=${#bno}
+ c=" "
+while [ $i -gt 0 ]
+do
+rev=`echo $bno | awk '{ printf substr( $0,'$i',1 ) }'`
+ c=$c$rev
+i=$(( $i - 1 ))
+done
+echo "Equivalent Binary no:" $ c
+
+echo -------------------------------------------------------------------------------------------------
+echo -------------------------------------------------------------------------------------------------
+
+
+
+elif [ $ch -eq 19 ]
+then
+
+
+if [ $prev -eq 1 ]
+then
+	a=$c
+else
+	echo "Enter any octal no;"
+	read a
+fi
+
+len=${#a}
+i=1
+pow=$((len - 1 ))
+while [ $i -le $len ]
+do
+n=`echo $a | awk '{ printf substr( $0,'$i',1 )}' `
+j=1
+p=1
+while [ $j -le $pow ]
+do
+p=$(( p * 8 ))
+j=$(( j + 1 ))
+done
+dec=$(( n * p ))
+c=$(( c + dec ))
+pow=$((pow - 1 ))
+i=$(( i + 1 ))
+done
+echo "Equivalent Decimal no:"$c 
+
+echo -------------------------------------------------------------------------------------------------
+echo -------------------------------------------------------------------------------------------------
+
+
+
+
+elif [ $ch -eq 20 ]
+then
+if [ $prev -eq 1 ]
+then
+	a=$c
+else
+	echo enter the value
+	read a
+fi
+
+rem=1
+ono=" "
+while [ $a -gt 0 ]
+do
+rem=`expr $a % 8 `
+ono=$ono$rem
+a=`expr $a / 2 `
+done
+i=${#ono}
+c=" "
+while [ $i -gt 0 ]
+do
+rev=`echo $ono | awk '{ printf substr( $0,'$i',1 ) }'`
+c=$c$rev
+i=$(( $i - 1 ))
+done
+echo "Equivalent Binary no:" $c
+
+echo -------------------------------------------------------------------------------------------------
+echo -------------------------------------------------------------------------------------------------
+
+
+
+
+elif [ $ch -eq 21 ]
+then
+
+if [ $prev -eq 1 ]
+then
+	a=$c
+else
+	echo enter the value
+	read a
+fi
+
+for ((i=1;i<=a;i++))
+do
+	c=`echo | awk '{print ('$a')*'2.718'}'`
+done
+echo $c
+
+echo -------------------------------------------------------------------------------------------------
+echo -------------------------------------------------------------------------------------------------
+
+
+
+
+
+elif [ $ch -eq 22 ]
+then
+
+if [ $prev -eq 1 ]
+then
+	a=$c
+else
+	echo enter a number
+	read a
+fi
+
+if [ $a -lt 0 ]
+then
+	c=`echo | awk '{print ('$a') *'-1'}'`	
+	echo $c
+else
+echo $c
+fi
+
+echo -------------------------------------------------------------------------------------------------
+echo -------------------------------------------------------------------------------------------------
+
+
+
+elif [ $ch -eq 23 ]
+then
+
+if [ $prev -eq 1 ]
+then
+	a=$c
+else
+	echo enter a number
+	read a
+fi
+
+d=`echo - | awk '{print (('$a' * 3.14159) / 180 )}'`
+c=`echo - | awk '{print sin('$a')}'`
+echo "sin($d) = $c"
+
+
+
+echo -------------------------------------------------------------------------------------------------
+echo -------------------------------------------------------------------------------------------------
+
+
+
+elif [ $ch -eq 24 ]
+then
+
+
+if [ $prev -eq 1 ]
+then
+	a=$c
+else
+	echo enter a number
+	read a
+fi
+
+d=`echo - | awk '{print (('$a' * 3.14159) / 180 )}'`
+c=`echo - | awk '{print cos('$a')}'`
+echo "cos($d) = $c"
+
+
+
+echo -------------------------------------------------------------------------------------------------
+echo -------------------------------------------------------------------------------------------------
+
+
+
+
+
+elif [ $ch -eq 25 ]
+then
+
+if [ $prev -eq 1 ]
+then
+	a=$c
+else
+	echo enter a number
+	read a
+fi
+
+d=`echo - | awk '{print (('$a' * 3.14159) / 180 )}'`
+c=`echo - | awk '{print sin('$d')/cos('$d')}'`
+echo "tan($d) = "$c
+
+
+
+echo -------------------------------------------------------------------------------------------------
+echo -------------------------------------------------------------------------------------------------
+
+
+
+
+
+elif [ $ch -eq 26 ]
+then
+
+if [ $prev -eq 1 ]
+then
+	a=$c
+else
+	echo enter a number
+	read a
+fi
+
+c=`echo | awk '{print log('$a')}'`
+echo $c
+
+
+echo -------------------------------------------------------------------------------------------------
+echo -------------------------------------------------------------------------------------------------
+
+else
+echo invalid input
+
+fi
+
+echo Do You wish to continue? Enter 1 for yes.
+read ich
+echo Do you wish to use the previous result? Enter 1 for yes.
+read prev
+
+
+
+
+
+done
+
